@@ -1,17 +1,28 @@
 package Checkers;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Checkers extends Application {
+
+    private Image img = new Image("file:resources/AsPik.jpg");
 
     public static void main(String[] args) {
         launch(args);
@@ -20,7 +31,25 @@ public class Checkers extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Group root = new Group();
-        Scene scene = new Scene(root, 720, 720, Color.BLACK);
+        Scene scene = new Scene(root, 920, 720, Color.BLACK);
+
+        JFrame frame = new JFrame();
+        frame.setSize(610, 610);
+
+
+        GridPane gridPane = new GridPane();
+
+        Button button = new Button();
+        button.setText("BUTTON");
+
+        GridPane.setRowIndex(button, 270);
+        GridPane.setColumnIndex(button, 270);
+        GridPane.setRowSpan(button, 200);
+        GridPane.setColumnSpan(button, 200);
+        button.setTranslateX(800);
+        button.setTranslateY(400);
+
+        gridPane.getChildren().add(button);
 
         Rectangle r0 = new Rectangle(0, 0, 90, 90);
         r0.setFill(Color.WHITE);
@@ -88,8 +117,7 @@ public class Checkers extends Application {
         r31.setFill(Color.WHITE);
 
 
-        root.getChildren().addAll(r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28, r29, r31, r30);
-
+        root.getChildren().addAll(r0, r1, r2, r3, r4, button, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28, r29, r31, r30);
         primaryStage.setTitle("Checkers");
         primaryStage.setScene(scene);
         primaryStage.show();
